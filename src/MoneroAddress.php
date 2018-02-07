@@ -1,6 +1,8 @@
 <?php
+
+namespace tectiv3;
+
 use StephenHill\Base58;
-require_once('sha3.php');
 /**
 * Monero address encoder/decoder
 */
@@ -109,8 +111,8 @@ class MoneroAddress {
     
     public function print() {
         echo $this->addr58 . " is " . $this->coins[$this->netbyte] . " address.\n";
-        echo "netbyte: ". $this->netbyte . PHP_EOL;
-        echo "hex: ".$this->addrHex. " len: ". strlen($this->addrHex) . PHP_EOL;
+        echo "Netbyte: ". $this->netbyte . PHP_EOL;
+        echo "Hex: ".$this->addrHex. " len: ". strlen($this->addrHex) . PHP_EOL;
         if ($this->pid) {
             echo "Payment ID: " . $this->pid . PHP_EOL;
         }

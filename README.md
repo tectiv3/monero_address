@@ -5,6 +5,7 @@ Small library to create/verify monero addresses
 
 ```php
 <?php
+require_once('vendor/autoload.php');
 
 use tectiv3\MoneroAddress;
 

@@ -1,4 +1,7 @@
 <?php
+
+namespace tectiv3;
+
 final class Sha3 {
 
     private const KECCAK_ROUNDS = 24;
