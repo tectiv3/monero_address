@@ -61,7 +61,7 @@ class MoneroAddress {
         $last_block_decoded_size = array_flip($encoded_block_sizes)[$last_block_size];
 
         if ($last_block_decoded_size < 0) {
-            throw new Exception("Invalid encoded length");
+            throw new \Exception("Invalid encoded length");
         }
 
         $data_size = $full_block_count * $full_block_size + $last_block_decoded_size;
@@ -80,7 +80,7 @@ class MoneroAddress {
     }
 
     public function makeIntegrated($pid) {
-        if ($pid == "") throw new Exception("empty payment id");
+        if ($pid == "") throw new \Exception("empty payment id");
         $preAddr = "13" . $this->pub_spend . $this->pub_view . $pid;
         $hash = Sha3::hash(hex2bin($preAddr), 256);
         $addrHex = $preAddr . substr($hash, 0, 8);
@@ -89,7 +89,7 @@ class MoneroAddress {
     
     private function parse() {
         if (strlen($this->addr58) !== 95 && strlen($this->addr58) !== 97 && strlen($this->addr58) !== 106) {
-            throw new Exception("Invalid Address Length!");
+            throw new \Exception('Invalid Address Length! ('. strlen($this->addr58) .')');
         }
         $addrHex = $this->decode($this->addr58);
         $this->addrHex = $addrHex;
@@ -101,7 +101,7 @@ class MoneroAddress {
         $this->netbyte = $netbyte;
         if ($netbyte == "13") {
             if (strlen($addrHex) !== 154){
-                throw new Exception("Invalid Address Length: " . strlen($addrHex) . " for " . $coins[$netbyte]);
+                throw new \Exception("Invalid Address Length: " . strlen($addrHex) . " for " . $coins[$netbyte]);
             }
             $this->pid = substr($addrHex, 132, -8);
         } 
