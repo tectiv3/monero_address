@@ -1,15 +1,15 @@
 {
     "name": "tectiv3/monero_address",
     "description": "Monero address create/verify library for PHP",
-    "license": "Apache 2.0",
+    "license": "Apache-2.0",
     "authors": [
         {
-            "name": "tectiv3",
+            "name": "tectiv3"
         }
     ],
     "autoload": {
         "psr-4": {
-            "tectiv3\\": "src/",
+            "tectiv3\\": "src/"
         }
     },
     "require": {
